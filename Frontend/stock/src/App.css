@@ -1,0 +1,15 @@
+.stock-heading{
+  color:red;
+  text-align: center;
+  text-decoration: underline;
+}
+form{
+  margin-left: 20px;
+  padding-bottom: 20px;
+}
+.stock-label{
+  padding-left: 50px;
+}
+.predicted-label{
+  padding-left: 8px;
+}
