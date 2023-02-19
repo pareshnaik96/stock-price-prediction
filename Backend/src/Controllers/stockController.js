@@ -12,11 +12,10 @@ const stock = async (req, res) => {
     const stock = response.data.chart.result[0].indicators.quote[0].close;
     const stockData = stock.slice(0,12)
 
-    return res.send({stock:stockData});
+    return res.status(200).send({status:true, message:"Stock data access successfully", stock:stockData});
 
   } catch (error) {
-    console.error(error);
-    return res.status(500).send('Error fetching stock data');
+    return res.status(500).send({status:false,message:'Error fetching stock data'});
   }
 };
 
@@ -44,11 +43,10 @@ const predictedStock = async (req, res) => {
         lastFiveDays.shift();
         lastFiveDays.push(predictedValue);
     }
-    return res.send({predicted:predictedData});
+    return res.status(200).send({status:true,message:"Successful",predicted:predictedData});
 
   } catch (error) {
-    console.error(error);
-    return res.status(500).send('Error fetching stock data');
+    return res.status(500).send({status:false,message:'Error fetching stock data'});
   }
 };
 
